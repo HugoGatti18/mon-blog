@@ -27,7 +27,7 @@ def animal_detail(request, id_animal):
         if form.is_valid():
             if form.data['lieu'] == 'mangeoire':
                 if mangeoire.disponibilite == 'occupé':
-                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': "Hélas, le mangeoire est occupé"})
+                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': "Impossible, le mangeoire est occupé"})
                 elif animal.etat == 'affamé' and mangeoire.disponibilite == 'libre':
                     ancien_lieu.disponibilite = "libre"
                     ancien_lieu.save()
@@ -43,11 +43,11 @@ def animal_detail(request, id_animal):
                         ancien_lieu.disponibilite = "occupé"
                         ancien_lieu.save()
                         form.save(commit=False)
-                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Hélas {animal} n'est pas affamé"})
+                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Impossible, {animal} n'est pas affamé"})
 
             elif form.data['lieu'] == 'roue':
                 if roue.disponibilite == 'occupé':
-                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Hélas, la roue est occupée"})
+                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Impossible, la roue est occupée"})
                 elif animal.etat == 'repus' and roue.disponibilite == 'libre':
                     ancien_lieu.disponibilite = "libre"
                     ancien_lieu.save()
@@ -63,11 +63,11 @@ def animal_detail(request, id_animal):
                         ancien_lieu.disponibilite = "occupé"
                         ancien_lieu.save()
                         form.save(commit=False)
-                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Helas {animal} n'est pas repus"})
+                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Impossible, {animal} n'est pas repus"})
 
             elif form.data['lieu'] == 'nid':
                 if nid.disponibilite == 'occupé':
-                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Hélas, le nid est occupé"})
+                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Impossible, le nid est occupé"})
                 elif animal.etat == 'fatigué' and nid.disponibilite == 'libre':
                     ancien_lieu.disponibilite = "libre"
                     ancien_lieu.save()
@@ -83,11 +83,11 @@ def animal_detail(request, id_animal):
                         ancien_lieu.disponibilite = "occupé"
                         ancien_lieu.save()
                         form.save(commit=False)
-                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Hélas {animal} n'est pas fatigué"})
+                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Impossible, {animal} n'est pas fatigué"})
 
             elif form.data['lieu'] == 'litière':
                 if litière.disponibilite == 'occupé':
-                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Hélas, la litière est occupée"})
+                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Impossible, la litière est occupée"})
                 elif animal.etat == 'endormis' and litière.disponibilite == 'libre':
                     ancien_lieu.disponibilite = "libre"
                     ancien_lieu.save()
@@ -103,7 +103,7 @@ def animal_detail(request, id_animal):
                         ancien_lieu.disponibilite = "occupé"
                         ancien_lieu.save()
                         form.save(commit=False)
-                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Hélas {animal} n'est pas endormi"})
+                    return render(request ,"blog/animal_detail.html", {'animal': animal, 'message': f"Impossible, {animal} n'est pas endormi"})
 
 
                   

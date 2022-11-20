@@ -5,12 +5,28 @@
 {% block content %}
 
 <div class="separation">
-<h2>Equipements</h2>
-<h2>Animaux</h2>
+    <h2>Animaux</h2>
+    <h2>Equipements</h2>
+
 </div>
 
 <div class="separation">
-
+    <div class="container">
+        {% for animal in animaux %}
+        <div>
+            <div class="sous-container">
+                <div class="photo">
+                    <img src={{animal.photo}} width="200" height="200">
+                </div>
+                <div class="Nom">{{ animal }}</div>
+                <div class="Etat">{{ animal.etat }} {{ animal.lieu }}</div>
+                <footer>
+                    <a href="{% url 'animal_detail' id_animal=animal.id_animal %}">Plus de détails</a>
+                </footer>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
     <div class="container">
         {% for equipement in equipements %}
         <div>
@@ -31,21 +47,6 @@
         </div>
         {% endfor %}
     </div>
-    <div class="container">
-        {% for animal in animaux %}
-        <div>
-            <div class="sous-container">
-                <div class="photo">
-                    <img src={{animal.photo}} width="200" height="200">
-                </div>
-                <div class="Nom">{{ animal }}</div>
-                <div class="Etat">{{ animal.etat }} {{ animal.lieu }}</div>
-                <footer>
-                    <a href="{% url 'animal_detail' id_animal=animal.id_animal %}">Plus de détails</a>
-                </footer>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+
 </div>
 {% endblock %}
